@@ -1,0 +1,158 @@
+<svg viewBox="0 0 1020 720" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="1020" height="720" fill="#ffffff"/>
+  <text x="24" y="34" font-size="22" font-weight="700" fill="#111">VOXEL-S3 — Wiring (ESP32-S3 DevKitC · N8R2 / N16R8)</text>
+  <text x="24" y="56" font-size="13" fill="#555">INMP441 mic (I2S in) · MAX98357A amp (I2S out) · SSD1306 0.91" OLED (I2C) · 3W speaker · USB-C power</text>
+
+  <!-- ============ SSD1306 OLED (top center) ============ -->
+  <rect x="300" y="78" width="190" height="74" rx="8" fill="#eef6ff" stroke="#2b6cb0" stroke-width="2"/>
+  <text x="395" y="104" font-size="14" font-weight="700" fill="#2b6cb0" text-anchor="middle">SSD1306 OLED</text>
+  <text x="395" y="122" font-size="11" fill="#555" text-anchor="middle">128×32 · I2C addr 0x3C</text>
+  <text x="330" y="148" font-size="10" fill="#333" text-anchor="middle">VCC</text>
+  <text x="360" y="148" font-size="10" fill="#333" text-anchor="middle">GND</text>
+  <text x="392" y="148" font-size="10" fill="#333" text-anchor="middle">SDA</text>
+  <text x="422" y="148" font-size="10" fill="#333" text-anchor="middle">SCL</text>
+
+  <!-- ============ ESP32-S3 (center) ============ -->
+  <rect x="300" y="190" width="190" height="320" rx="10" fill="#f2f2f2" stroke="#222" stroke-width="2.5"/>
+  <text x="395" y="216" font-size="16" font-weight="700" fill="#111" text-anchor="middle">ESP32-S3</text>
+  <text x="395" y="234" font-size="11" fill="#555" text-anchor="middle">DevKitC</text>
+  <text x="395" y="470" font-size="11" fill="#777" text-anchor="middle">BOOT (GPIO0)</text>
+  <text x="395" y="486" font-size="11" fill="#777" text-anchor="middle">= push-to-talk</text>
+  <text x="395" y="502" font-size="11" fill="#777" text-anchor="middle">USB-C = power + flash</text>
+
+  <!-- ESP left-edge pin labels -->
+  <g font-size="11" fill="#111" text-anchor="start">
+    <text x="306" y="263">3V3</text>
+    <text x="306" y="288">GND</text>
+    <text x="306" y="313">GPIO4</text>
+    <text x="306" y="338">GPIO5</text>
+    <text x="306" y="363">GPIO6</text>
+    <text x="306" y="403">GPIO7</text>
+    <text x="306" y="428">GPIO15</text>
+    <text x="306" y="453">GPIO16</text>
+  </g>
+  <!-- ESP top-edge pin labels (to OLED) at x ~330/360/392/422 -->
+  <g font-size="10" fill="#111" text-anchor="middle">
+    <text x="330" y="206">3V3</text>
+    <text x="360" y="206">GND</text>
+    <text x="392" y="206">G8</text>
+    <text x="422" y="206">G9</text>
+  </g>
+  <!-- 5V pin (bottom-left of ESP) -->
+  <text x="306" y="492" font-size="11" fill="#111">5V</text>
+
+  <!-- ============ INMP441 mic (left top) ============ -->
+  <rect x="40" y="210" width="150" height="150" rx="8" fill="#eafaf0" stroke="#2f855a" stroke-width="2"/>
+  <text x="115" y="234" font-size="14" font-weight="700" fill="#2f855a" text-anchor="middle">INMP441</text>
+  <text x="115" y="250" font-size="10" fill="#555" text-anchor="middle">I2S MEMS mic</text>
+  <g font-size="11" fill="#333" text-anchor="end">
+    <text x="182" y="278">VDD</text>
+    <text x="182" y="300">GND</text>
+    <text x="182" y="322">SCK</text>
+    <text x="182" y="344">WS</text>
+    <text x="182" y="356">SD</text>
+  </g>
+  <text x="48" y="352" font-size="9.5" fill="#999">L/R→GND</text>
+
+  <!-- ============ MAX98357A amp (left bottom) ============ -->
+  <rect x="40" y="392" width="160" height="160" rx="8" fill="#fff5e9" stroke="#c05621" stroke-width="2"/>
+  <text x="120" y="416" font-size="14" font-weight="700" fill="#c05621" text-anchor="middle">MAX98357A</text>
+  <text x="120" y="432" font-size="10" fill="#555" text-anchor="middle">I2S amplifier</text>
+  <g font-size="11" fill="#333" text-anchor="end">
+    <text x="192" y="458">VIN</text>
+    <text x="192" y="480">GND</text>
+    <text x="192" y="502">DIN</text>
+    <text x="192" y="524">BCLK</text>
+    <text x="192" y="544">LRC</text>
+  </g>
+  <text x="48" y="476" font-size="9.5" fill="#999">SD→3V3</text>
+  <text x="48" y="540" font-size="9.5" fill="#999">GAIN: float</text>
+
+  <!-- ============ Speaker ============ -->
+  <circle cx="95" cy="630" r="34" fill="#f0f0f0" stroke="#444" stroke-width="2"/>
+  <text x="95" y="628" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SPK</text>
+  <text x="95" y="644" font-size="9" fill="#555" text-anchor="middle">3W 4/8Ω</text>
+  <text x="150" y="600" font-size="10" fill="#333">+ −</text>
+
+  <!-- ============ WIRES ============ -->
+  <!-- OLED to ESP (vertical drops) -->
+  <line x1="330" y1="152" x2="330" y2="198" stroke="#e53e3e" stroke-width="2"/>   <!-- VCC 3V3 -->
+  <line x1="360" y1="152" x2="360" y2="198" stroke="#111" stroke-width="2"/>      <!-- GND -->
+  <line x1="392" y1="152" x2="392" y2="198" stroke="#0bc5ea" stroke-width="2"/>   <!-- SDA G8 -->
+  <line x1="422" y1="152" x2="422" y2="198" stroke="#d53f8c" stroke-width="2"/>   <!-- SCL G9 -->
+
+  <!-- INMP441 to ESP left pins -->
+  <polyline points="190,274 245,274 245,259 300,259" fill="none" stroke="#dd6b20" stroke-width="2"/>  <!-- VDD->3V3 -->
+  <polyline points="190,296 240,296 240,284 300,284" fill="none" stroke="#111" stroke-width="2"/>      <!-- GND -->
+  <polyline points="190,318 230,318 230,309 300,309" fill="none" stroke="#38a169" stroke-width="2"/>   <!-- SCK->G4 -->
+  <polyline points="190,340 225,340 225,334 300,334" fill="none" stroke="#3182ce" stroke-width="2"/>   <!-- WS->G5 -->
+  <polyline points="190,352 220,352 220,359 300,359" fill="none" stroke="#805ad5" stroke-width="2"/>   <!-- SD->G6 -->
+
+  <!-- MAX98357 to ESP -->
+  <polyline points="200,454 250,454 250,488 300,488" fill="none" stroke="#e53e3e" stroke-width="2.4"/> <!-- VIN->5V -->
+  <polyline points="200,476 236,476 236,284 300,284" fill="none" stroke="#111" stroke-width="2"/>      <!-- GND -->
+  <polyline points="200,498 268,498 268,399 300,399" fill="none" stroke="#805ad5" stroke-width="2"/>   <!-- DIN->G7 -->
+  <polyline points="200,520 278,520 278,424 300,424" fill="none" stroke="#38a169" stroke-width="2"/>   <!-- BCLK->G15 -->
+  <polyline points="200,540 288,540 288,449 300,449" fill="none" stroke="#3182ce" stroke-width="2"/>   <!-- LRC->G16 -->
+
+  <!-- amp SD enable to 3V3 (short tag already noted) -->
+  <!-- speaker wires -->
+  <line x1="70" y1="552" x2="70" y2="600" stroke="#444" stroke-width="2"/>
+  <line x1="70" y1="600" x2="78" y2="600" stroke="#444" stroke-width="2"/>
+  <line x1="120" y1="552" x2="120" y2="600" stroke="#444" stroke-width="2"/>
+  <line x1="120" y1="600" x2="112" y2="600" stroke="#444" stroke-width="2"/>
+  <text x="60" y="568" font-size="9" fill="#777">SPK+</text>
+  <text x="124" y="568" font-size="9" fill="#777">SPK−</text>
+
+  <!-- ============ CONNECTION TABLE (right) ============ -->
+  <rect x="540" y="78" width="456" height="552" rx="8" fill="#fafafa" stroke="#ccc" stroke-width="1.5"/>
+  <text x="560" y="104" font-size="15" font-weight="700" fill="#111">Connection table</text>
+
+  <g font-size="12.5" fill="#222">
+    <text x="560" y="132" font-weight="700" fill="#2f855a">INMP441 (3.3 V)</text>
+    <text x="560" y="152">VDD → 3V3</text><text x="780" y="152">SCK → GPIO4</text>
+    <text x="560" y="170">GND → GND</text><text x="780" y="170">WS  → GPIO5</text>
+    <text x="560" y="188">L/R → GND</text><text x="780" y="188">SD  → GPIO6</text>
+
+    <line x1="560" y1="202" x2="976" y2="202" stroke="#e2e2e2"/>
+    <text x="560" y="226" font-weight="700" fill="#c05621">MAX98357A (5 V for full 3 W)</text>
+    <text x="560" y="246">VIN  → 5V</text><text x="780" y="246">DIN  → GPIO7</text>
+    <text x="560" y="264">GND  → GND</text><text x="780" y="264">BCLK → GPIO15</text>
+    <text x="560" y="282">SD   → 3V3</text><text x="780" y="282">LRC  → GPIO16</text>
+    <text x="560" y="300">GAIN → float (9 dB)</text>
+    <text x="560" y="318">SPK+ / SPK− → Speaker (3W 4/8Ω)</text>
+
+    <line x1="560" y1="332" x2="976" y2="332" stroke="#e2e2e2"/>
+    <text x="560" y="356" font-weight="700" fill="#2b6cb0">SSD1306 OLED (3.3 V, I2C)</text>
+    <text x="560" y="376">VCC → 3V3</text><text x="780" y="376">SDA → GPIO8</text>
+    <text x="560" y="394">GND → GND</text><text x="780" y="394">SCL → GPIO9</text>
+
+    <line x1="560" y1="408" x2="976" y2="408" stroke="#e2e2e2"/>
+    <text x="560" y="432" font-weight="700" fill="#333">Power</text>
+    <text x="560" y="452">USB-C → powers the board (5 V + programming)</text>
+    <text x="560" y="470">5V pin (VBUS) → MAX98357 VIN</text>
+    <text x="560" y="488">3V3 pin → INMP441 VDD + OLED VCC</text>
+    <text x="560" y="506">All grounds common (mic, amp, OLED, speaker, board)</text>
+
+    <line x1="560" y1="520" x2="976" y2="520" stroke="#e2e2e2"/>
+    <text x="560" y="544" font-weight="700" fill="#333">Control</text>
+    <text x="560" y="564">BOOT button (GPIO0) = hold to talk</text>
+  </g>
+
+  <!-- footnotes -->
+  <g font-size="10.5" fill="#777">
+    <text x="560" y="592">Pins avoid strapping (0/3/45/46), USB (19/20) and PSRAM/flash (26–37).</text>
+    <text x="560" y="608">You can move any GPIO in the .ino — the S3 routes I2S/I2C on most pins.</text>
+    <text x="560" y="624">Enable PSRAM in the Arduino board settings (audio buffers need it).</text>
+  </g>
+
+  <!-- legend (bottom left) -->
+  <g font-size="10.5">
+    <text x="24" y="690" font-weight="700" fill="#333">Legend:</text>
+    <rect x="84" y="681" width="16" height="9" fill="#e53e3e"/><text x="104" y="690" fill="#555">5V / 3V3 power</text>
+    <rect x="214" y="681" width="16" height="9" fill="#111"/><text x="234" y="690" fill="#555">GND</text>
+    <rect x="290" y="681" width="16" height="9" fill="#38a169"/><text x="310" y="690" fill="#555">BCLK/SCK</text>
+    <rect x="392" y="681" width="16" height="9" fill="#3182ce"/><text x="412" y="690" fill="#555">WS/LRC</text>
+    <rect x="478" y="681" width="16" height="9" fill="#805ad5"/><text x="498" y="690" fill="#555">data (SD/DIN)</text>
+  </g>
+</svg>
